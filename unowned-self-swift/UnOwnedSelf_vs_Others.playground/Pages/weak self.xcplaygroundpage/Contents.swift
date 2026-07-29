@@ -12,7 +12,7 @@ final class HTMLElement: @unchecked Sendable {
            let text = self.text {
             return "<\(self.name)>\(text)</\(self.name)>"
         } else {
-            return "Invalid Indentifier"
+            return "<\(self?.name ?? "unknown") />"
         }
     }
     
