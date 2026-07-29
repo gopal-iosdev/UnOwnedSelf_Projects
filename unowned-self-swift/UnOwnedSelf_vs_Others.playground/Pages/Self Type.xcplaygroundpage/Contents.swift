@@ -38,7 +38,10 @@ class HTMLElementTests: XCTestCase {
     }
 }
 
-code(for: "Self - Covariant Return Type") {
+demo(
+    "Self - Covariant Return Type",
+    expecting: "Self resolves to whichever type is actually calling it"
+) {
     HTMLElementTests.defaultTestSuite.run()
 }
 

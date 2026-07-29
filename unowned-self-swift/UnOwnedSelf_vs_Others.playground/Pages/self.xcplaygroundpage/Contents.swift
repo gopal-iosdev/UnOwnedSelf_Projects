@@ -33,7 +33,6 @@ final class HTMLElement: @unchecked Sendable {
 
 class HTMLElementTests: XCTestCase {
     func testSUTSuccessfullyDeInitializedAfterUse() {
-        // `sut` here means system under test and `HTMLElement` is our SUT here.
         let sut = makeSUT(name: "p", text: "Hello, world")
         
         XCTAssertEqual(sut.asHTML(), "<p>Hello, world</p>")
@@ -51,7 +50,10 @@ class HTMLElementTests: XCTestCase {
     }
 }
 
-code(for: "self - Strong Reference Cycle") {
+demo(
+    "self - Strong Reference Cycle",
+    expecting: "sut does NOT deallocate (leak)"
+) {
     HTMLElementTests.defaultTestSuite.run()
 }
 
