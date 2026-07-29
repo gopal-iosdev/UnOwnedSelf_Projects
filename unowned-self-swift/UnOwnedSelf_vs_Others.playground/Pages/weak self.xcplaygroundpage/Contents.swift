@@ -1,5 +1,15 @@
 //: [Previous](@previous)
 
+/*:
+ ## weak self
+ `[weak self]` breaks the strong reference cycle by making `self` an *Optional* inside the closure.
+ `sut` deallocates cleanly, same as `unowned self` - but accessing a deallocated weak reference
+ just gives you `nil`, never a crash. This is why `weak` is the generally recommended default
+ over `unowned`.
+
+ ![No reference cycle - weak self breaks the strong reference](weak_self.png width="500")
+ */
+
 import XCTest
 
 final class HTMLElement: @unchecked Sendable {
@@ -43,4 +53,6 @@ class HTMLElementTests: XCTestCase {
     }
 }
 
-HTMLElementTests.defaultTestSuite.run()
+code(for: "weak self - Breaking the Cycle (Safely)") {
+    HTMLElementTests.defaultTestSuite.run()
+}

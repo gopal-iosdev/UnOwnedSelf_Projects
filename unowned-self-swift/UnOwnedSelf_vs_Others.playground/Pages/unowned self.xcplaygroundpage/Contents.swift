@@ -1,5 +1,15 @@
 //: [Previous](@previous)
 
+/*:
+ ## unowned self
+ `[unowned self]` breaks the strong reference cycle without making `self` optional -
+ it's basically an implicitly-unwrapped weak reference. `sut` deallocates cleanly here,
+ same as `weak self` - but accessing an unowned reference *after* deallocation crashes
+ at runtime, since there's no optional check to fall back on.
+
+ ![No reference cycle - unowned self breaks the strong reference](unowned_self.png width="500")
+ */
+
 import XCTest
 
 final class HTMLElement: @unchecked Sendable {
@@ -42,6 +52,8 @@ class HTMLElementTests: XCTestCase {
     }
 }
 
-HTMLElementTests.defaultTestSuite.run()
+code(for: "unowned self - Breaking the Cycle (Unsafely)") {
+    HTMLElementTests.defaultTestSuite.run()
+}
 
 //: [Next](@next)

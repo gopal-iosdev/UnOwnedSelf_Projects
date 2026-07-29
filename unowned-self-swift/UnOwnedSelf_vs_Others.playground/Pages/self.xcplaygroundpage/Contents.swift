@@ -1,5 +1,14 @@
 //: [Previous](@previous)
 
+/*:
+ ## self
+ Capturing `self` with no capture list keeps a **strong** reference to `self` inside the closure.
+ Since `asHTML` is stored *on* `self`, this creates a cycle: `self` → `asHTML` closure → `self`.
+ Neither side can ever reach a reference count of zero, so `sut` never deallocates - a memory leak.
+
+ ![Strong reference cycle between HTMLElement and its closure via self](self.png width="500")
+ */
+
 import XCTest
 
 final class HTMLElement: @unchecked Sendable {
@@ -42,6 +51,8 @@ class HTMLElementTests: XCTestCase {
     }
 }
 
-HTMLElementTests.defaultTestSuite.run()
+code(for: "self - Strong Reference Cycle") {
+    HTMLElementTests.defaultTestSuite.run()
+}
 
 //: [Next](@next)

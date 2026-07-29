@@ -1,5 +1,22 @@
 //: [Previous](@previous)
 
+/*:
+ # Unowned Self vs Others
+
+ A hands-on companion to the blog post ["Unowned Self in Swift: Why and When to Use It"](https://unownedself.com/posts/unowned-self-swift/).
+
+ ## Contents
+ - [Self Type](Self%20Type) - `Self` as a covariant return type
+ - [self](self) - the strong reference cycle
+ - [unowned self](unowned%20self) - breaking the cycle, unsafely
+ - [weak self](weak%20self) - breaking the cycle, safely
+
+ ---
+
+ ## Self Type
+ `Self` refers to the type itself, not a specific instance - and unlike hardcoding a class name, it resolves to whichever concrete type is actually calling it. See `HTMLElement.makeDefault()` vs `ParagraphElement.makeDefault()` below.
+ */
+
 import XCTest
 
 class HTMLElement {
@@ -34,6 +51,8 @@ class HTMLElementTests: XCTestCase {
     }
 }
 
-HTMLElementTests.defaultTestSuite.run()
+code(for: "Self - Covariant Return Type") {
+    HTMLElementTests.defaultTestSuite.run()
+}
 
 //: [Next](@next)
