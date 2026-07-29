@@ -2,7 +2,7 @@
 
 import XCTest
 
-final class HTMLElement: Sendable {
+final class HTMLElement: @unchecked Sendable {
     let name: String
     let text: String?
     
@@ -20,19 +20,14 @@ final class HTMLElement: Sendable {
         self.name = name
         self.text = text
     }
-    
-    
-    deinit {
-        print("\(name) is being deinitialized")
-    }
 }
 
 class HTMLElementTests: XCTestCase {
     func testSUTSuccessfullyDeInitializedAfterUse() {
         // `sut` here means system under test and `HTMLElement` is our SUT here.
-        let sut = makeSUT(name: "p", text: "Hello, World!")
+        let sut = makeSUT(name: "p", text: "Hello, world")
         
-        XCTAssertEqual(sut.asHTML(), "<p>hello, world</p>")
+        XCTAssertEqual(sut.asHTML(), "<p>Hello, world</p>")
     }
     
     private func makeSUT(
@@ -46,5 +41,7 @@ class HTMLElementTests: XCTestCase {
         return sut
     }
 }
+
+HTMLElementTests.defaultTestSuite.run()
 
 //: [Next](@next)
