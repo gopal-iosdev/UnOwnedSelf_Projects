@@ -7,7 +7,7 @@
  just gives you `nil`, never a crash. This is why `weak` is the generally recommended default
  over `unowned`.
 
- ![No reference cycle - weak self breaks the strong reference](weak_self.png width="500")
+ ![No reference cycle - weak self breaks the strong reference](weak_self.png)
  */
 
 import XCTest

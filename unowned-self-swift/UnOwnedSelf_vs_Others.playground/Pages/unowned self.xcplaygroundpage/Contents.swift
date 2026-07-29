@@ -7,7 +7,7 @@
  same as `weak self` - but accessing an unowned reference *after* deallocation crashes
  at runtime, since there's no optional check to fall back on.
 
- ![No reference cycle - unowned self breaks the strong reference](unowned_self.png width="500")
+ ![No reference cycle - unowned self breaks the strong reference](unowned_self.png)
  */
 
 import XCTest
