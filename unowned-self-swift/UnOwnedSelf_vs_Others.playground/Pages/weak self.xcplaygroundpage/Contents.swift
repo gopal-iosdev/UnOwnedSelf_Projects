@@ -4,8 +4,7 @@
  ## weak self
  `[weak self]` breaks the strong reference cycle by making `self` an *Optional* inside the closure.
  `sut` deallocates cleanly, same as `unowned self` - but accessing a deallocated weak reference
- just gives you `nil`, never a crash. This is why `weak` is the generally recommended default
- over `unowned`.
+ just gives you `nil`, never a crash.
 
  ![No reference cycle - weak self breaks the strong reference](weak_self.png)
  */
