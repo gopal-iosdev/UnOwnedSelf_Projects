@@ -1,5 +1,3 @@
-//: [Previous](@previous)
-
 import XCTest
 
 class HTMLElement {

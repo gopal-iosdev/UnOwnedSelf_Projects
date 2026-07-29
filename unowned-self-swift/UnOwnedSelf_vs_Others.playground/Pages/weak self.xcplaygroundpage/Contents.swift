@@ -12,7 +12,7 @@ final class HTMLElement: @unchecked Sendable {
            let text = self.text {
             return "<\(self.name)>\(text)</\(self.name)>"
         } else {
-            return "<\(String(describing: self?.name)) />"
+            return "Invalid Indentifier"
         }
     }
     
@@ -44,5 +44,3 @@ class HTMLElementTests: XCTestCase {
 }
 
 HTMLElementTests.defaultTestSuite.run()
-
-//: [Next](@next)
