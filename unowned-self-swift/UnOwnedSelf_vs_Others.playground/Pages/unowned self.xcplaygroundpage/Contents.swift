@@ -1,7 +1,8 @@
-//: [Previous](@previous)
-
 /*:
+ [← Previous](@previous)  |  [Home](Introduction)  |  [Next →](@next)
+ 
  ## unowned self
+ 
  `[unowned self]` breaks the strong reference cycle without making `self` optional -
  it's basically an implicitly-unwrapped weak reference. `sut` deallocates cleanly here,
  same as `weak self` - but accessing an unowned reference *after* deallocation crashes
@@ -57,5 +58,3 @@ demo(
 ) {
     HTMLElementTests.defaultTestSuite.run()
 }
-
-//: [Next](@next)

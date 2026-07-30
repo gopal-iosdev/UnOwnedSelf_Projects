@@ -1,7 +1,8 @@
-//: [Previous](@previous)
-
 /*:
+ [← Previous](@previous)  |  [Home](Introduction)  |  [Next →](@next)
+ 
  ## self
+ 
  Capturing `self` with no capture list keeps a **strong** reference to `self` inside the closure.
  Since `asHTML` is stored *on* `self`, this creates a cycle: `self` → `asHTML` closure → `self`.
  Neither side can ever reach a reference count of zero, so `sut` never deallocates - a memory leak.
@@ -56,5 +57,3 @@ demo(
 ) {
     HTMLElementTests.defaultTestSuite.run()
 }
-
-//: [Next](@next)

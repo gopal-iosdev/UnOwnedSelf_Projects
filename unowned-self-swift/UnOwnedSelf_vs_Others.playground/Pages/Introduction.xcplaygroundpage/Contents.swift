@@ -15,5 +15,3 @@
  > **Note:** Throughout these pages, `sut` means "system under test" - a common testing convention for the object being tested.
  
  */
-
-//: [Next](@next)

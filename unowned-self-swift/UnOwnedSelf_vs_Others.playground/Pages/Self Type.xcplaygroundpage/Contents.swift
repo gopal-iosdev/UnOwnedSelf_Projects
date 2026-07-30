@@ -1,6 +1,8 @@
-//: [Previous](@previous)
 /*:
+ [← Previous](@previous)  |  [Home](Introduction)  |  [Next →](@next)
+ 
  ## Self Type
+ 
  `Self` refers to the type itself, not a specific instance - and unlike hardcoding a class name, it resolves to whichever concrete type is actually calling it. See `HTMLElement.makeDefault()` vs `ParagraphElement.makeDefault()` below.
  */
 
@@ -44,5 +46,3 @@ demo(
 ) {
     HTMLElementTests.defaultTestSuite.run()
 }
-
-//: [Next](@next)

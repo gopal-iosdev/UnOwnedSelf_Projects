@@ -1,7 +1,8 @@
-//: [Previous](@previous)
-
 /*:
+ [← Previous](@previous)  |  [Home](Introduction)
+ 
  ## weak self
+ 
  `[weak self]` breaks the strong reference cycle by making `self` an *Optional* inside the closure.
  `sut` deallocates cleanly, same as `unowned self` - but accessing a deallocated weak reference
  just gives you `nil`, never a crash.
