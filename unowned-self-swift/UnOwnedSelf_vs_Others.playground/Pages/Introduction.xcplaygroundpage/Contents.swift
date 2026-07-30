@@ -1,7 +1,7 @@
 /*:
  # Unowned Self vs Others
 
- A hands-on companion to the blog post ["Self, self, weak self, and unowned self in Swift"](https://unownedself.com/posts/unowned-self-swift/).
+ A hands-on companion to the blog post ["Unowned Self vs Others"](https://unownedself.com/posts/unowned-self-swift/).
 
  ## Contents
  - [Self Type](Self%20Type) - `Self` as a covariant return type
