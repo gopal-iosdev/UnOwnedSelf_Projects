@@ -9,5 +9,3 @@
  - [POC](POC) - Using playgrounds to run a quick proof of concept
  ---
 */
-
-//: [Next](@next)
