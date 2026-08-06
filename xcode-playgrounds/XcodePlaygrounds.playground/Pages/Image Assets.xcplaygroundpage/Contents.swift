@@ -1,16 +1,16 @@
 /*:
  [← Previous](@previous)  |  [Home](Introduction)  |  [Next →](@next)
  
- ## Using Image assets in Xcode Playgrounds
- 
- ### PNG vs JPEG in Xcode Playgrounds
- 
+ ## Image Assets
+
+ ### PNG vs JPEG
+
  `UIImage(named:)` picks up a loose `.png` file in `Resources/` by name alone,
  but a loose `.jpeg`/`.jpg` file needs the extension included in the name string.
  This isn't officially documented — just observed behavior.
- 
- ### SVG image assets in Xcode Playgrounds
- 
+
+ ### SVG
+
  `UIImage(named:)`, `UIImage(data:)`, and `UIImage(contentsOfFile:)` all fail to load a loose `.svg` file.
  SVG only renders when it's added through an Asset Catalog with "Preserve Vector Data" enabled -
  there's no runtime SVG rasterization path for loose files in `Resources/`.
@@ -21,6 +21,10 @@
  that fails as a loose file — through both `UIImage(named:)` and SwiftUI's `Image("name")`.
  Loose files in `Resources/` only work with `UIImage(named:)`: `Image("name")` reads asset
  catalogs only, so it never sees them.
+
+ > **Observed behavior** — after adding a new asset to `Resources/`, quit and relaunch
+ > Xcode before running the page. Until you do, the asset often won't be found even though
+ > it's sitting right there in the folder.
  
  */
 
@@ -28,27 +32,34 @@ import UIKit
 import SwiftUI
 import PlaygroundSupport
 
-//: `Resources/` folder
+//: ### Loose files in `Resources/`
 
-let swiftLogoJPEG = UIImage(named: "Swift_logo_color_jpeg") // nil - fails without the extension
+let pngFromResources = UIImage(named: "Swift_logo_color") // works - no extension needed for PNG
 
-let swiftLogoPNG = UIImage(named: "Swift_logo_color") // works - no extension needed for PNG
+let jpegFromResources = UIImage(named: "Swift_logo_color_jpeg") // nil - fails without the extension
 
-let swiftLogoJPEGWorking = UIImage(named: "Swift_logo_color_jpeg.jpeg") // works - extension included
+let jpegFromResourcesWithExt = UIImage(named: "Swift_logo_color_jpeg.jpeg") // works - extension included
 
-let swiftLogoSVG = UIImage(named: "Swift_logo_color_svg.svg") // nil - SVG isn't supported outside an Asset Catalog
+let svgFromResources = UIImage(named: "Swift_logo_color_svg.svg") // nil - no runtime SVG decoder
 
-let swiftLogoPNGViaImage = Image("Swift_logo_color") // empty - Image() only reads asset catalogs
+let pngFromResourcesAsImage = Image("Swift_logo_color") // empty - Image() only reads asset catalogs
 
-//: `AssetCatalog`
+/*:
+ ### From the Asset Catalog
 
-let swiftLogoPNGFromAssetCatalogViaUIImage = UIImage(named: "Swift_logo_color_asset_catalog") // works
+ Each imageset is deliberately named differently from the file inside it -
+ `Swift_logo_color_asset_catalog.imageset` holds `Swift_logo_color.png`. Since no file on disk
+ is called `Swift_logo_color_asset_catalog.png`, these lookups succeeding proves the catalog's
+ asset *names* are being resolved, not filenames. Don't "tidy up" the mismatch - it's the proof.
+ */
 
-let swiftLogoPNGFromAssetCatalog = Image( "Swift_logo_color_asset_catalog") // works
+let pngFromCatalog = UIImage(named: "Swift_logo_color_asset_catalog") // works
 
-let swiftLogoJPEGFromAssetCatalog = Image( "Swift_logo_color_jpeg_asset_catalog") // works
+let pngFromCatalogAsImage = Image("Swift_logo_color_asset_catalog") // works
 
-let swiftLogoSVGFromAssetCatalog = Image( "Swift_logo_color_svg_asset_catalog") // works
+let jpegFromCatalogAsImage = Image("Swift_logo_color_jpeg_asset_catalog") // works
+
+let svgFromCatalogAsImage = Image("Swift_logo_color_svg_asset_catalog") // works
 
 struct AssetComparisonSwiftUIView: View {
     var body: some View {
@@ -60,19 +71,19 @@ struct AssetComparisonSwiftUIView: View {
                     .underline()
                     .foregroundStyle(.red)
                 Text("✅ UIImage: PNG, no extension").font(.headline)
-                preview(swiftLogoPNG)
+                preview(pngFromResources)
 
                 Text("❌ UIImage: JPEG, no extension").font(.headline)
-                preview(swiftLogoJPEG)
+                preview(jpegFromResources)
 
                 Text("✅ UIImage: JPEG with extension").font(.headline)
-                preview(swiftLogoJPEGWorking)
+                preview(jpegFromResourcesWithExt)
 
                 Text("❌ UIImage: SVG").font(.headline)
-                preview(swiftLogoSVG)
+                preview(svgFromResources)
 
                 Text("❌ Image: PNG").font(.headline)
-                preview(swiftLogoPNGViaImage)
+                preview(pngFromResourcesAsImage)
             }
             Divider()
             VStack(spacing: 20) {
@@ -82,16 +93,16 @@ struct AssetComparisonSwiftUIView: View {
                     .underline()
                     .foregroundStyle(.green)
                 Text("✅ UIImage: PNG").font(.headline)
-                preview(swiftLogoPNGFromAssetCatalogViaUIImage)
+                preview(pngFromCatalog)
 
                 Text("✅ Image: PNG").font(.headline)
-                preview(swiftLogoPNGFromAssetCatalog)
+                preview(pngFromCatalogAsImage)
 
                 Text("✅ Image: JPEG").font(.headline)
-                preview(swiftLogoJPEGFromAssetCatalog)
+                preview(jpegFromCatalogAsImage)
 
                 Text("✅ Image: SVG").font(.headline)
-                preview(swiftLogoSVGFromAssetCatalog)
+                preview(svgFromCatalogAsImage)
             }
         }
         .padding(10)
@@ -100,4 +111,10 @@ struct AssetComparisonSwiftUIView: View {
     }
 }
 
-PlaygroundPage.current.setLiveView(AssetComparisonSwiftUIView())
+
+demo(
+    "Running Image Assets as live view inside a Playground",
+    expecting: "AssetComparisonSwiftUIView to preview successfully as live view in this playground"
+) {
+    PlaygroundPage.current.setLiveView(AssetComparisonSwiftUIView())
+}
