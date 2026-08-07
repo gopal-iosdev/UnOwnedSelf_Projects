@@ -19,10 +19,6 @@
  The two APIs need different mechanisms to get there. SwiftUI's `Color("name")` follows the
  `colorScheme` environment value, while `UIColor(named:)` resolves against a `UITraitCollection` -
  so forcing an appearance in UIKit means calling `resolvedColor(with:)` explicitly.
-
- > **Observed behavior** — setting `.environment(\.colorScheme, .dark)` flips `Text` to white,
- > but it does not change the live view's background. Without giving the dark column its own
- > dark background, the labels render white-on-white and look like they've disappeared.
  */
 import UIKit
 import SwiftUI
@@ -48,7 +44,7 @@ let colorInCodeLight = Color(red: 0.94, green: 0.32, blue: 0.22)
 
 let colorInCodeDark = Color(red: 1.00, green: 0.54, blue: 0.40)
 
-/// A bordered swatch. The outline matters: a color that fails to resolve renders as clear,
+/// A bordered color box. The outline matters: a color that fails to resolve renders as clear,
 /// and without a border you can't tell an invisible swatch from a missing one.
 private func colorBox(_ color: Color?, size: CGFloat = 100) -> some View {
     RoundedRectangle(cornerRadius: 8)
