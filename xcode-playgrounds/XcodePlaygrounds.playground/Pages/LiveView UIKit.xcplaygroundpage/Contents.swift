@@ -2,8 +2,10 @@
  [← Previous](@previous)  |  [Home](Introduction)  |  [Next →](@next)
  
  ## Live View UIKit
- 
- In this page, we explore how to ideate real quick with UI elements in UIKit using playgrounds.
+
+ The same idea in UIKit. `PlaygroundPage.current.liveView` takes a `UIView` or a
+ `UIViewController` directly, so a stack view renders exactly the way a SwiftUI `View` does -
+ note it's assigned to `liveView` rather than passed to `setLiveView`.
  */
 import PlaygroundSupport
 import UIKit
@@ -63,8 +65,8 @@ let swiftLogoUIKitView = SwiftLogoUIKitView(
 )
 
 demo(
-    "Running UIKit ui elements as live view inside a Playground",
-    expecting: "swiftLogoUIImageView to preview successfully as live view in this playground"
+    "Rendering a UIKit view in the live view",
+    expecting: "the Swift logo to appear inside a bordered stack view"
 ) {
     PlaygroundPage.current.liveView = swiftLogoUIKitView
 }

@@ -113,8 +113,8 @@ struct ColorView: View {
 }
 
 demo(
-    "Running Color Assets as live view inside a Playground",
-    expecting: "SwiftBrandOrange to differ between the Light and Dark columns"
+    "Resolving a colorset under both appearances",
+    expecting: "SwiftBrandOrange to differ between the Light and Dark columns, while the programmatic swatch stays the same"
 ) {
     PlaygroundPage.current.setLiveView(ColorView())
 }

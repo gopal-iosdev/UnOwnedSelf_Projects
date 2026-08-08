@@ -26,6 +26,7 @@
  The `AVAudioPlayer` instances do still have to be retained, which is why they're declared at top
  level. Create one inside a function and it deallocates when that function returns: `play()`
  succeeds and nothing comes out.
+
  > **Observed behavior** — after adding an audio file to `Resources/`, quit and relaunch Xcode
  > before running. Until you do, `Bundle.main.url(forResource:withExtension:)` returns `nil` for a
  > file that is plainly sitting in the folder - a false negative on entirely correct code. The same

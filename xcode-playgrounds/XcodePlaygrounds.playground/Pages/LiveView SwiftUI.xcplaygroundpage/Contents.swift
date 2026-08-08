@@ -2,8 +2,9 @@
  [← Previous](@previous)  |  [Home](Introduction)  |  [Next →](@next)
  
  ## Live View SwiftUI
- 
- In this page, we explore how to ideate real quick with UI elements in SwiftUI using playgrounds.
+
+ The quickest way to try a SwiftUI view: hand it to `setLiveView` and it renders right there,
+ with no app target to build first. Edit the view and the live view redraws as you type.
  */
 import PlaygroundSupport
 import SwiftUI
@@ -25,8 +26,8 @@ struct SwiftLogoSwiftUIView: View {
 let swiftLogoSwiftUIView = SwiftLogoSwiftUIView()
 
 demo(
-    "Running SwiftUI ui elements as live view inside a Playground",
-    expecting: "swiftLogoSwiftUIView to preview successfully as live view in this playground"
+    "Rendering a SwiftUI view in the live view",
+    expecting: "the Swift logo to appear inside a bordered box"
 ) {
     PlaygroundPage.current.setLiveView(swiftLogoSwiftUIView)
 }

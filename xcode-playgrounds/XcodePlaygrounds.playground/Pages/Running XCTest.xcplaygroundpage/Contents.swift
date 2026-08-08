@@ -11,8 +11,9 @@
  synchronously runs every `test*` method on the class and reports pass/fail
  through `XCTAssert` calls, same as a normal test target would.
 
- The output only shows up as console logging in the debug area (`View > Debug Area > Activate Console`) - unlike the other pages, there's no `setLiveView` here,
- since a test run isn't a `View` to render.
+ The output only shows up as console logging in the debug area
+ (`View > Debug Area > Activate Console`) - unlike the other pages there's no `setLiveView`
+ here, since a test run isn't a `View` to render.
 
  To run just one test instead of the whole suite, construct the case directly
  with `init(selector:)` and call `.run()` on that single instance - see the
@@ -53,13 +54,16 @@ class PersonTests: XCTestCase {
     }
 }
 
-demo("Run just this one test in isolation, instead of the whole suite.", expecting: "Executes the test `testPersonInitializedWithOnlyName()` successfully") {
+demo(
+    "Running a single test in isolation",
+    expecting: "only testPersonInitializedWithOnlyName to run, and to pass"
+) {
     PersonTests(selector: #selector(PersonTests.testPersonInitializedWithOnlyName)).run()
 }
 
 demo(
-    "Running XCTest suite inside a Playground",
-    expecting: "Person tests to execute successfully in this playground"
+    "Running the whole test suite",
+    expecting: "both Person tests to run, and to pass"
 ) {
     PersonTests.defaultTestSuite.run()
 }

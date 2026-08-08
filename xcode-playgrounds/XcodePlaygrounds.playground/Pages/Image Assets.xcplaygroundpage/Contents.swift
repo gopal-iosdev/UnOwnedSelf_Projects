@@ -112,8 +112,8 @@ struct AssetComparisonSwiftUIView: View {
 
 
 demo(
-    "Running Image Assets as live view inside a Playground",
-    expecting: "AssetComparisonSwiftUIView to preview successfully as live view in this playground"
+    "Loading images from Resources/ and from an Asset Catalog",
+    expecting: "every catalog image to load; from Resources/ only the UIImage lookups, and JPEG only with its extension"
 ) {
     PlaygroundPage.current.setLiveView(AssetComparisonSwiftUIView())
 }

@@ -34,11 +34,7 @@ import AVFoundation
 import SwiftUI
 import PlaygroundSupport
 
-/*:
- `import AVKit` fails in a playground - it can't resolve its `CoreAudioTypes` dependency in the
- simulator runtime - which rules out SwiftUI's `VideoPlayer`. `AVPlayerLayer` lives in
- `AVFoundation`, which loads fine, so the video surface is built from that instead.
- */
+//: The video surface, built from `AVPlayerLayer` since `AVKit` is unavailable.
 
 final class PlayerContainerView: UIView {
     override class var layerClass: AnyClass { AVPlayerLayer.self }
