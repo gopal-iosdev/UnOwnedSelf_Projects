@@ -11,13 +11,15 @@
  synchronously runs every `test*` method on the class and reports pass/fail
  through `XCTAssert` calls, same as a normal test target would.
 
- The output only shows up as console logging in the debug area (`View > Debug Area
- > Activate Console`) - unlike the other pages, there's no `setLiveView` here,
+ The output only shows up as console logging in the debug area (`View > Debug Area > Activate Console`) - unlike the other pages, there's no `setLiveView` here,
  since a test run isn't a `View` to render.
 
  To run just one test instead of the whole suite, construct the case directly
  with `init(selector:)` and call `.run()` on that single instance - see the
  commented-out lines below `PersonTests.defaultTestSuite.run()`.
+ 
+ > **Note:** `sut` means "system under test" - a common testing convention
+ > for the object being tested.
  */
 
 import XCTest

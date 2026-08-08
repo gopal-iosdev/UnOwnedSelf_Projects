@@ -12,9 +12,7 @@
  ### Light and dark appearances
 
  `SwiftBrandOrange` defines two appearances: `#F05138` for Any, `#FF8A65` for Dark. Both resolve
- correctly in a playground - the two columns below render different oranges, while the
- programmatic swatch stays identical in both, confirming the difference comes from the asset
- rather than from the column-forcing itself.
+ correctly in a playground - the two columns below render different oranges.
 
  The two APIs need different mechanisms to get there. SwiftUI's `Color("name")` follows the
  `colorScheme` environment value, while `UIColor(named:)` resolves against a `UITraitCollection` -
@@ -26,9 +24,9 @@ import PlaygroundSupport
 
 //: ### From the Asset Catalog
 
-let colorFromCatalog = UIColor(named: "SwiftBrandOrange") // works?
+let colorFromCatalog = UIColor(named: "SwiftBrandOrange") // works
 
-let colorFromCatalogAsColor = Color("SwiftBrandOrange") // works?
+let colorFromCatalogAsColor = Color("SwiftBrandOrange") // works
 
 //: `UIColor` ignores SwiftUI's environment, so each appearance is resolved explicitly.
 
@@ -44,8 +42,7 @@ let colorInCodeLight = Color(red: 0.94, green: 0.32, blue: 0.22)
 
 let colorInCodeDark = Color(red: 1.00, green: 0.54, blue: 0.40)
 
-/// A bordered color box. The outline matters: a color that fails to resolve renders as clear,
-/// and without a border you can't tell an invisible swatch from a missing one.
+/// A bordered color box. The outline matters: a color that fails to resolve renders as clear
 private func colorBox(_ color: Color?, size: CGFloat = 100) -> some View {
     RoundedRectangle(cornerRadius: 8)
         .fill(color ?? .clear)

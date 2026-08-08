@@ -3,9 +3,8 @@
  
  ## Live View UIKit
  
- In this page, I will be showing examples of how to idea real quick with UI elements in UIKit using playgrounds.
+ In this page, we explore how to ideate real quick with UI elements in UIKit using playgrounds.
  */
-
 import PlaygroundSupport
 import UIKit
 

@@ -27,7 +27,6 @@
  > it's sitting right there in the folder.
  
  */
-
 import UIKit
 import SwiftUI
 import PlaygroundSupport
@@ -50,7 +49,7 @@ let pngFromResourcesAsImage = Image("Swift_logo_color") // empty - Image() only 
  Each imageset is deliberately named differently from the file inside it -
  `Swift_logo_color_asset_catalog.imageset` holds `Swift_logo_color.png`. Since no file on disk
  is called `Swift_logo_color_asset_catalog.png`, these lookups succeeding proves the catalog's
- asset *names* are being resolved, not filenames. Don't "tidy up" the mismatch - it's the proof.
+ asset *names* are being resolved, not filenames.
  */
 
 let pngFromCatalog = UIImage(named: "Swift_logo_color_asset_catalog") // works
