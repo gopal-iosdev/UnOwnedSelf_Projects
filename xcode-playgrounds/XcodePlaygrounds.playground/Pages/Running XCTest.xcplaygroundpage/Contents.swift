@@ -1,7 +1,7 @@
 /*:
  [← Previous](@previous)  |  [Home](Introduction)  |  [Next →](@next)
  
- ## Running XCTest Inside a Playground
+ ## Running XCTest
  
  A `.playground` has no test target or scheme, so there's no `Product > Test` (⌘U)
  command and no green checkmarks in the gutter - `XCTestCase` still imports and
