@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<playground version='7.0' target-platform='ios' swift-version='6' display-mode='raw' buildActiveScheme='true' importAppTypes='true'>
+    <pages>
+        <page name='Introduction'/>
+        <page name='LiveView SwiftUI'/>
+        <page name='LiveView UIKit'/>
+        <page name='Image Assets'/>
+        <page name='Color Assets'/>
+        <page name='Audio Assets'/>
+        <page name='Video Assets'/>
+        <page name='Running XCTest'/>
+    </pages>
+</playground>
