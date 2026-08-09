@@ -1,6 +1,6 @@
 # Xcode Playgrounds
 
-Companion code for the blog post **["Xcode Playgrounds"](https://unownedself.com/tools/xcode-playgrounds/)**.
+Companion code for the blog post **["Getting Real Work Out of Xcode Playgrounds"](https://unownedself.com/tools/xcode-playgrounds/)**.
 
 
 ## Getting Started

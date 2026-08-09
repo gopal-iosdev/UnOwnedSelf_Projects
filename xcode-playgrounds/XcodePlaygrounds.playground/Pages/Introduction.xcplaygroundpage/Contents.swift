@@ -1,7 +1,7 @@
 /*:
  # Xcode Playgrounds
 
- A hands-on companion to the blog post ["Xcode Playgrounds"](https://unownedself.com/tools/xcode-playgrounds/).
+ A hands-on companion to the blog post ["Getting Real Work Out of Xcode Playgrounds"](https://unownedself.com/tools/xcode-playgrounds/).
 
  ## Contents
 
