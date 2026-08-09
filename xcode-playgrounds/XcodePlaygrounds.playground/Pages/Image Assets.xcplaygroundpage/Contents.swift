@@ -7,7 +7,9 @@
 
  `UIImage(named:)` picks up a loose `.png` file in `Resources/` by name alone,
  but a loose `.jpeg`/`.jpg` file needs the extension included in the name string.
- This isn't officially documented — just observed behavior.
+ Worth flagging, because the widely-repeated behavior is that since iOS 4 the extension is
+ optional and `UIImage` infers the format from the bundle. Here it didn't: the bare name
+ resolved for PNG and returned `nil` for JPEG.
 
  ### SVG
 
