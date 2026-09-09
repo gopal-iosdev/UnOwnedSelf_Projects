@@ -21,7 +21,7 @@ demo("singleton", expecting: "Can have more than one instance of URLSession/ Use
     
     session = MockURLSession()
     userDefaults = MockUserDefaults()
-
+    
     print("session type: ", type(of: session))
     print("userDefaults type: ", type(of: userDefaults))
 }
