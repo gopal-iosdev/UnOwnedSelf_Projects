@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<playground version='6.0' target-platform='ios' display-mode='raw' buildActiveScheme='true' importAppTypes='true'>
+<playground version='7.0' target-platform='ios' swift-version='6' display-mode='raw' buildActiveScheme='true' importAppTypes='true'>
     <pages>
         <page name='Introduction'/>
-        <page name='Singleton-static-let'/>
-        <page name='singleton-static-var'/>
+        <page name='Singleton-private-init'/>
+        <page name='Singleton-private-init-testing'/>
+        <page name='singleton'/>
+        <page name='singleton-testing'/>
         <page name='Global shared state'/>
+        <page name='Global shared state - testing'/>
     </pages>
 </playground>
